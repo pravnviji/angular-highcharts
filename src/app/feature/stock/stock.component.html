@@ -1,0 +1,6 @@
+<h2>StockTimeSeries - List of Companies</h2>
+<div>
+  <ul class="list-group" *ngFor="let stock of stockNames">
+    <li class="list-group-item" (click)="getStockName(stock)">{{ stock }}</li>
+  </ul>
+</div>
