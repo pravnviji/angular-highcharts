@@ -1,10 +1,13 @@
 <div class="container">
-  <span class="my-3"> Data ==> {{ textDesc }} </span>
-  <div class="row">
+  <span>{{ textDesc }} </span>
+  <div class="row my-2">
     <div class="col-md-12 text-center">
       <input type="text" placeholder="Enter the value" [(ngModel)]="value" />
-      <button class="bg-warning mx-3" (click)="onAddCounter()">
+      <button class="bg-warning mx-1 small" (click)="onAddCounter()">
         Add Counter
+      </button>
+      <button class="bg-warning mx-1 small" (click)="onChangeName()">
+        Update Name
       </button>
     </div>
   </div>

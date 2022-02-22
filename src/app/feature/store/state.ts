@@ -1,7 +1,7 @@
 export const initialState: TCounterState = {
   counterStore: 'storeid#1',
   counter: 0,
-  text: 'Praveen Practice with Counter',
+  text: 'Counter Example From State',
 };
 
 export type TCounterState = {

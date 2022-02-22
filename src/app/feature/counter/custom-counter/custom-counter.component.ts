@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { customcounter } from '../../store/actions';
+import { customchanneltext, customcounter } from '../../store/actions';
+import { getChannelText } from '../../store/counter-selector';
 import { TCounterState } from '../../store/state';
 
 @Component({
@@ -12,16 +12,23 @@ import { TCounterState } from '../../store/state';
 export class CustomCounterComponent implements OnInit {
   value!: number;
   textDesc!: string;
-  constructor(private store: Store<{ counterStore: TCounterState }>) {}
+  constructor(private store: Store<TCounterState>) {}
 
   ngOnInit(): void {
-    this.store.select('counterStore').subscribe((res: TCounterState) => {
-      this.textDesc = res.text;
+    console.log('CustomCounterComponent Oninit');
+    this.store.select(getChannelText).subscribe((channelText) => {
+      console.log('Get Channel Text Subscription');
+      console.log(channelText);
+      this.textDesc = channelText;
     });
   }
 
   onAddCounter(): void {
     console.log(this.value);
     this.store.dispatch(customcounter({ counter: +this.value }));
+  }
+
+  onChangeName(): void {
+    this.store.dispatch(customchanneltext({ text: 'Updated new text' }));
   }
 }

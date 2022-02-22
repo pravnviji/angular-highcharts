@@ -8,3 +8,8 @@ export const customcounter = createAction(
   'customcounter',
   props<{ counter: TCounterState['counter'] }>()
 );
+
+export const customchanneltext = createAction(
+  'customchanneltext',
+  props<{ text: TCounterState['text'] }>()
+);
